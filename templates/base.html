@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>
+    Помощь сферы медецыне
+    {% block title %}
+
+    {% endblock %}
+  </title>
+</head>
+
+<body>
+  <header {% if dark %} class="dark--header" {% endif%}>
+    <div class="container">
+      <div class="header_row">
+        <a href="{% url 'home' %}" class="header__logo">
+          <span>PRO</span>
+          <span>EGISZ</span>
+        </a>
+        <div class="header__wrappers ">
+          <ul class="header__list">
+            <li class="header__list-item">
+              <a href="{% url 'servicarse' %}" class="header__list-link">
+                Услуги
+              </a>
+            </li>
+            <li class="header__list-item">
+              <a href="{% url 'about' %}" class="header__list-link">
+                Контакт
+              </a>
+            </li>
+          </ul>
+          <div class="header__social">
+            <div class="header__colact">
+              <a href="tel:+1234567890" class="header__social-phone">+7 928 640 70 00</a>
+              <div class="header__social-time">ПН- Вс: с 07:00 до 20:00 (МСК)</div>
+            </div>
+            <a href="https://wa.me/79286407000?text=Здравствуйте," class="btn header__social-btn">
+              <strong>Свезаться WhatsApp</strong>
+              <img src="{% static '/icons/a.footer__menu-link.png' %}" alt="">
+              <div class="header__social-model"></div>
+            </a>
+          </div>
+        </div>
+        <div class="header__row-mobile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30px" viewBox="0 0 24 24" class="end_clock">
+            <g>
+              <polygon points="20 18 4 18 4 18 20 18 20 18" stroke="#ffffff" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" />
+              <polygon points="20 14 4 14 4 14 20 14 20 14" stroke="#ffffff" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" />
+              <polygon points="20 10 4 10 4 10 20 10 20 10" stroke="#ffffff" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" />
+              <polygon points="20 6 4 6 4 6 20 6 20 6" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" />
+            </g>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30px" viewBox="0 0 24 24" class="click_look">
+            <g>
+              <polygon fill="#ffffff" points="12.9 18 4.1 18 4.1 18 12.9 18 12.9 18" stroke="#ffffff"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+              <polygon fill="#ffffff" points="20 14 4 14 4 14 20 14 20 14" stroke="#ffffff" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" />
+              <polygon fill="#ffffff" points="12.9 10 4.1 10 4.1 10 12.9 10 12.9 10" stroke="#ffffff" stroke="#000000"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+              <polygon fill="#ffffff" points="20 6 4 6 4 6 20 6 20 6" stroke="#ffffff" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="element"></div>
+  </header>
+  {% block page %}
+  <!--  PAGE -->
+  {% endblock %}
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer__wrappers">
+        <div class="footer__item">
+          <h5 class="footer__item-title">Наши решения</h5>
+          <div class="footer__menus">
+            <a href="#" class="footer__menus-link">
+              МИС для медцентров
+            </a>
+          </div>
+        </div>
+        <div class="footer__item">
+          <h5 class="footer__item-title">Услуги</h5>
+          <div class="footer__menus">
+            <a href="#" class="footer__menus-link">
+              Маркировка лекарств (МДЛП)
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__item">
+          <h5 class="footer__item-title">Контакты</h5>
+          <div class="footer__socials">
+            <a href="#">
+              <img src="./assets/icons/a.footer__menu-link (1).png" alt="">
+            </a>
+            <a href="#">
+              <img src="./assets/icons/a.footer__menu-link (2).png" alt="">
+            </a>
+            <a href="#">
+              <img src="./assets/icons/a.footer__menu-link.png" alt="">
+            </a>
+          </div>
+          <div class="footer__menus">
+            <a href="#" class="footer__menus-link">
+              +7 965 960-99-55
+            </a>
+            <a href="#" class="footer__menus-link">
+              ПН- ПТ: с 07:00 до 20:00 (МСК)
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="{% static '/js/anime.js' %}"></script>
+
+  {% block script %}
+
+  {% endblock%}
+</body>
+
+</html>

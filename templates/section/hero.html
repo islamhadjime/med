@@ -1,0 +1,59 @@
+{% load static %}
+
+{% block stylesheets %}
+{% endblock %}
+
+<section class="hero">
+  <div class="container">
+    <div class="hero__wrappers">
+      <div class="hero__content">
+        <h1 class="hero__content-title">Помощник в сфере медицины</h1>
+        <p class="hero__content-description">Деловые услуги бизнесу и системы управления клиникой от PROEGISZ.</p>
+        <div class="hero__conetnt-list">
+          <div class="hero__content-item">
+            <div class="hero__content-img">
+              <img src="{% static '/icons/forlder.svg.png' %}" alt="">
+            </div>
+            <p class="hero__content-textaer">Услуги <br> ЕГИСЗ</p>
+          </div>
+          <div class="hero__content-item">
+            <div class="hero__content-img">
+              <img src="{% static '/icons/shield.svg.png' %}" alt="">
+            </div>
+            <p class="hero__content-textaer">Услуги аптекам и медицинским <br> учреждениям по маркировке лекарств</p>
+          </div>
+          <div class="hero__content-item">
+            <div class="hero__content-img">
+              <img src="{% static '/icons/plus.svg.png' %}" alt="">
+            </div>
+            <p class="hero__content-textaer">Честный Знак (МДЛП).</p>
+          </div>
+          <div class="hero__content-item">
+            <div class="hero__content-img">
+              <img src="{% static '/icons/star.svg.png' %}" alt="">
+            </div>
+            <p class="hero__content-textaer">Сайт для врача</p>
+          </div>
+        </div>
+        <a href="{% url 'servicarse' %}" class="btn hero__content-btn">
+          Узнать подробнее
+          <svg xmlns="http://www.w3.org/2000/svg" width="30px" viewBox="0 0 24 24">
+            <g>
+              <polyline data-name="Right" fill="none" id="Right-2" points="16.4 7 21.5 12 16.4 17" stroke="#FFFFFF"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+              <line fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                x1="2.5" x2="19.2" y1="12" y2="12" />
+            </g>
+          </svg>
+        </a>
+      </div>
+      <div class="hero_images">
+        <img src="{% static '/img/image.psd.png' %}" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% block javascript %}
+{% endblock %}

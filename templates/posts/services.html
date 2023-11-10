@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+Контакты
+{% endblock %}
+
+
+
+{% block page %}
+<div class="page-heading">
+  <div class="container">
+    <div class="navigation">
+      <div class="navigation-item">
+        <a href="{% url 'home' %}" title="Главная">
+          <span>Главная</span>
+        </a>
+      </div>
+      <div class="navigation-item">
+        <div>></div>
+        <a href="{% url 'about' %}" title="Главная">
+          <span>Услуги</span>
+        </a>
+      </div>
+    </div>
+    <div class="page-heading__content">
+      <h3>Услуги</h3>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% include 'section/servicarse.html' %}
+<section class="sercard">
+  <div class="container">
+    <div class="sercards__list">
+      {% for item in categorys %}
+      <div class="sercards__item">
+        <div class="sercards__item-header ">
+          <div class="sercards__item-icon"></div>
+          <h3 class="sercards__item-title">{{item.category_name}}</h3>
+          <p class="sercards__item-des">
+            {{ item.body|safe }}
+          </p>
+        </div>
+        <ul class="sercards__item-lister">
+          {% with item.post.all as posts %}
+          {% for post in posts %}
+          <li class="sercards__item-item">
+            <a class="sercards__item-link" href="{{ post.get_absolute_url }}">{{post.title}}</a>
+          </li>
+          {% endfor %}
+          {% endwith %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="formemail">
+  <div class="container">
+    <div class="screen">
+      <div class="screen-header">
+        <div class="screen-header-left">
+          <div class="screen-header-button close"></div>
+          <div class="screen-header-button maximize"></div>
+          <div class="screen-header-button minimize"></div>
+        </div>
+        <div class="screen-header-right">
+          <div class="screen-header-ellipsis"></div>
+          <div class="screen-header-ellipsis"></div>
+          <div class="screen-header-ellipsis"></div>
+        </div>
+      </div>
+      <div class="screen-body">
+        <div class="screen-body-item left">
+          <div class="app-title">
+            <span>Консультация</span>
+            <span>Бесплатная консультация, оставьте заявку мы Вам перезвоним.</span>
+          </div>
+          <div class="app-contact">Контакты : +7 928 640 70 00</div>
+        </div>
+        <div class="screen-body-item">
+          {% if isActiv %}
+          <h1>Спасибо, ваша заявка отправлена!</h1>
+          {% else %}
+          <form class="app-form" method="post" action="servicarse">
+            {% csrf_token %}
+            {{ form }}
+            <div class="app-form-group buttons">
+              <button type="submit" class="app-form-button btn ">Заказать звонок</button>
+            </div>
+          </form>
+          {% endif%}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock%}

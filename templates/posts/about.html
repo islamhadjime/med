@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+
+{% block title %}
+
+{% endblock %}
+
+
+
+{% block page %}
+<div class="page-heading">
+  <div class="container">
+    <div class="navigation">
+      <div class="navigation-item">
+        <a href="#" title="Главная">
+          <span>Главная</span>
+        </a>
+      </div>
+      <div class="navigation-item">
+        <div>></div>
+        <a href="#" title="Главная">
+          <span>Контакты</span>
+        </a>
+      </div>
+    </div>
+    <div class="page-heading__content">
+      <h3>Контакты</h3>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<section class="contact">
+  <div class="container">
+    <div class="contact__lister">
+      <div class="contact__lister-item">
+        <h3 class="contact__lister-title">Режим работы</h3>
+        <p class="contact__lister-des">ПН- ПТ: с 07:00 до 20:00</p>
+      </div>
+      <div class="contact__lister-item">
+        <h3 class="contact__lister-title">Соц.сети</h3>
+        <a href="#">
+          <img src="{% static '/icons/a.footer__menu-link (2).png' %}" alt="">
+        </a>
+      </div>
+    </div>
+    <div class="contact__wrappers">
+      <div class="contact__item">
+        <div class="contact__item-left">
+          <h3>Техническая поддержка</h3>
+          <p>(помощь по проблемам в ЕГИСЗ)</p>
+          <a href="#">#</a>
+          <a href="#">+7 965 960-99-55</a>
+          <div class="contact__item-soc">
+            <a href="#">
+              <img src="{% static '/icons/a.footer__menu-link (1).png' %}" alt="">
+            </a>
+            <a href="#">
+              <img src="{% static '/icons/a.footer__menu-link (2).png' %}" alt="">
+            </a>
+            <a href="#">
+              <img src="{% static '/icons/a.footer__menu-link.png' %}" alt="">
+            </a>
+          </div>
+        </div>
+        <div class="contact__item-img">
+          <img src="{% static '/icons/04.png.png' %}" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock%}
