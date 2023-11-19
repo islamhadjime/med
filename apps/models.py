@@ -45,14 +45,7 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("detail", kwargs={"pk": self.pk})
 
-class NumberUser(models.Model):
-    number_us = models.CharField(max_length=30,verbose_name='Номер телефона')
-    created = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return "Дата: {}, Названия: {}".format(self.created,self.number_us)
-
-class modelEmail(models.Model):
     name = models.CharField(max_length=200,verbose_name='Имя Пользователя')
     tel  = models.CharField(max_length=30,verbose_name='Номер')
     question = models.CharField(max_length=300,verbose_name='Тектс')

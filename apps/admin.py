@@ -2,7 +2,7 @@ from django import forms
 from django.contrib import admin
 from ckeditor.widgets import CKEditorWidget
 
-from .models import Post,Category,NumberUser,modelEmail
+from .models import Post,Category
 
 class PostAdminForm(forms.ModelForm):
     class Meta:
@@ -14,9 +14,7 @@ class PostAdminForm(forms.ModelForm):
 class PostAdmin(admin.ModelAdmin):
     form = PostAdminForm
 
-admin.site.register(NumberUser)
 admin.site.register(Category)
-admin.site.register(modelEmail)
 
 admin.site.register(Post, PostAdmin)
 

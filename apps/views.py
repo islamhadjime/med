@@ -5,22 +5,25 @@ from django.core.mail import EmailMessage, send_mail
 from django.shortcuts import render
 from django.template.loader import render_to_string
 
-from .models import Post, Category,NumberUser,modelEmail
+from .models import Post, Category
 from .forms import PhoneForm,FormEmail
 
 
 
-
+def persion(request):
+    context = {
+        'dark':True,
+        "form":FormEmail(),
+    }
+    return render(request,'posts/person.html',context)
 
 def home(request):
-    context = {
-        'categorys':Category.objects.all()
-    }
-    return render(request,'posts/home.html',context)
+  return render(request,'posts/home.html',{'categorys':'',"form":FormEmail(),})
 
 def about(request):
     context = {
-        'dark':True 
+        'dark':True,
+        "form":FormEmail(),
     }
     return render(request,'posts/about.html',context)
 
@@ -48,10 +51,9 @@ def servicarse(request):
                 "isActiv":isActiv
             }
             return render(request,'apps/services.html',context)
-
     else:
         context = {
-            'categorys':Category.objects.all(),
+            'categorys':'',
             'dark':True,
             "form":FormEmail(),
             "isActiv":isActiv
@@ -60,6 +62,8 @@ def servicarse(request):
 
 def detail_all(request,pk):
     category = Category.objects.get(pk=pk)
+    if category == '':
+      pkID = '' 
     pkID     = category.post.all()[0].pk
     return redirect('detail',pk=pkID)
 
