@@ -3,7 +3,6 @@
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = '#'
 DEBUG = True
 ALLOWED_HOSTS = []
 
@@ -165,12 +164,6 @@ STATICFILES_DIRS = [
 ]
 
 
-EMAIL_HOST = 'smtp.mail.ru'
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = '#'
-EMAIL_HOST_PASSWORD = '#'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media/'
-CKEDITOR_UPLOAD_PATH = 'uploads/'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
