@@ -14,13 +14,12 @@
 {% include 'section/miscard.html'%}
 <section class="post">
   <div class="container">
-    <h2 class="post__title">Выберите свой случай </h2>
     <div class="post__list">
       {% if categorys %}
       {% for item in categorys %}
       <div class="post__list-item">
         <div class="post__list-img">
-          <img src="{{ item.img.url }}">
+          <img src="med{{ item.img.url }}">
         </div>
         <div class="post__list-c">
           <h3 class="post__list-title">
@@ -31,18 +30,17 @@
           </p>
           <a href="{% url 'detail_all' item.pk %}" class="btn post__list-btn">
             Подробнее
-            <svg xmlns="http://www.w3.org/2000/svg" width="30px" viewBox="0 0 24 24">
-              <g>
-                <polyline data-name="Right" fill="none" id="Right-2" points="16.4 7 21.5 12 16.4 17" stroke="#FFFFFF"
-                  stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                <line fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  x1="2.5" x2="19.2" y1="12" y2="12" />
-              </g>
-            </svg>
+            <div class="btn-right">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30px" viewBox="0 0 24 24">
+                <g>
+                  <polyline data-name="Right" fill="none" id="Right-2" points="16.4 7 21.5 12 16.4 17" stroke="#FFFFFF"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                  <line fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    x1="2.5" x2="19.2" y1="12" y2="12" />
+                </g>
+              </svg>
+            </div>
           </a>
-          <div class="post__list-icon">
-            <span class="post_list-anim"></span>
-          </div>
         </div>
       </div>
       {% endfor %}
@@ -54,4 +52,6 @@
     </div>
   </div>
 </section>
+{% include 'section/answers.html' %}
+
 {% endblock%}

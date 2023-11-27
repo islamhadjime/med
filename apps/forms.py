@@ -18,7 +18,7 @@ class FormEmail(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'class':'app-form-control',
-                "placeholder":'Ваша имя'
+                "placeholder":'имя'
             }
         )
     )

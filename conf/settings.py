@@ -3,7 +3,7 @@
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = 'django-insecure-)s(^pi&2%*5dmen&gd&t)!#-2c)_ifm%4^q494g7!8nr^we387'
+SECRET_KEY = '#'
 DEBUG = True
 ALLOWED_HOSTS = []
 
@@ -128,6 +128,8 @@ DATABASES = {
 
 
 
+
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -163,9 +165,7 @@ STATICFILES_DIRS = [
 ]
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mail.ru'
-EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = '#'
 EMAIL_HOST_PASSWORD = '#'

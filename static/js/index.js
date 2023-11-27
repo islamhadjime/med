@@ -1,8 +1,8 @@
 
 
+
 let hbtn = document.querySelector('.header__row-mobile');
 let header__wrappers = document.querySelector('.header__wrappers')
-const root = document.querySelector(":root")
 
 // https://codepen.io/noirsociety/pen/ZEwLGXB
 document.querySelector("#clickModal").addEventListener('click', () => {
@@ -11,13 +11,6 @@ document.querySelector("#clickModal").addEventListener('click', () => {
     document.body.classList.remove('activaModal')
   })
 })
-
-
-
-
-
-
-
 
 function queryElement(el, state) {
   document.querySelector(el).style.display = state
@@ -56,23 +49,28 @@ document.querySelector('#chk').addEventListener('click', () => {
 
 
 
-window.addEventListener('scroll', function () {
-  if (this.pageYOffset <= 1370) {
-    animStart(document.querySelector('.stats_round_1'), 15)
-    animStart(document.querySelector('.stats_round_2'), 5623)
-    animStart(document.querySelector('.stats_round_3'), 20)
-    return true
+function resElemen(el, name) {
+  if (el.querySelector(name).style.opacity == 0) {
+    el.querySelector(name).style.opacity = 1
+    el.querySelector(name).style.height = 'auto'
+    el.querySelector('.answers__item-bottom p').style.marginTop = '15px'
+    el.querySelector('.down-answers__item').style.display = 'none'
+    el.querySelector('.know-answers__item').style.display = 'block'
+    return
   }
-});
-
-
-
-function animStart(el, con) {
-  return anime({
-    targets: el,
-    innerHTML: [0, con],
-    easing: 'linear',
-    round: 10 // Will round the animated value to 1 decimal
-  });
+  el.querySelector(name).style.opacity = 0
+  el.querySelector(name).style.height = '0px'
+  el.querySelector('.answers__item-bottom p').style.marginTop = '0px'
+  el.querySelector('.down-answers__item').style.display = 'block'
+  el.querySelector('.know-answers__item').style.display = 'none'
 }
 
+
+
+const answers__item = document.querySelectorAll('.answers__item')
+for (let i = 0; i < answers__item.length; i++) {
+  answers__item[i].addEventListener('click', (e) => {
+    resElemen(answers__item[i], '.answers__item-bottom')
+  })
+
+}

@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home,name='home'),
     path('about',about,name='about'),
+    path('email',email,name='email'),
     path('servicarse',servicarse,name='servicarse'),
     path('persion',persion,name='persion'),
     path('detail_all/<int:pk>/',detail_all,name="detail_all"),

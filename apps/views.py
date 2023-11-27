@@ -10,6 +10,24 @@ from .forms import PhoneForm,FormEmail
 
 
 
+# Method post email
+def email(request):
+  form = FormEmail(request.POST)
+  if form.is_valid():
+        cd = form.cleaned_data
+        name = cd["name"],
+        tel = cd["tel"],
+        question = cd["des"]
+        print(cd,name,tel,question)
+        # send_mail(
+        #         'Сообщение от {}'.format(name),
+        #         'Имя пользователя: {}   сообщения: {}   контакт:{} '.format(name,question,tel),
+        #         'от кого <{}>'.format(settings.EMAIL_HOST_USER),
+        #         [settings.EMAIL_HOST_USER],
+        #         fail_silently=False,
+        #     )
+        return redirect('home')
+
 def persion(request):
     context = {
         'dark':True,
@@ -18,7 +36,11 @@ def persion(request):
     return render(request,'posts/person.html',context)
 
 def home(request):
-  return render(request,'posts/home.html',{'categorys':'',"form":FormEmail(),})
+  context ={
+    'categorys':Category.objects.all(),
+    "form":FormEmail()
+  }
+  return render(request,'posts/home.html',context)
 
 def about(request):
     context = {
@@ -28,42 +50,15 @@ def about(request):
     return render(request,'posts/about.html',context)
 
 def servicarse(request):
-    isActiv = False
-    if request.method == 'POST':
-        form = FormEmail(request.POST)
-        if form.is_valid():
-            cd = form.cleaned_data
-            name = cd["name"],
-            tel = cd["tel"],
-            question = cd["des"]
-            send_mail(
-                'Сообщение от {}'.format(name),
-                'Имя пользователя: {}   сообщения: {}   контакт:{} '.format(name,question,tel),
-                'от кого <{}>'.format(settings.EMAIL_HOST_USER),
-                [settings.EMAIL_HOST_USER],
-                fail_silently=False,
-            )
-            isActiv = True
-            context = {
-                'categorys':Category.objects.all(),
-                'dark':True,
-                "form":FormEmail(),
-                "isActiv":isActiv
-            }
-            return render(request,'apps/services.html',context)
-    else:
-        context = {
-            'categorys':'',
+    context = {
+            'categorys':Category.objects.all(),
             'dark':True,
             "form":FormEmail(),
-            "isActiv":isActiv
-        }
-        return render(request,'posts/services.html',context)
+    }
+    return render(request,'posts/services.html',context)
 
 def detail_all(request,pk):
     category = Category.objects.get(pk=pk)
-    if category == '':
-      pkID = '' 
     pkID     = category.post.all()[0].pk
     return redirect('detail',pk=pkID)
 

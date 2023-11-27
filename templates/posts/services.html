@@ -61,45 +61,11 @@
     </div>
   </div>
 </section>
-<section class="formemail">
-  <div class="container">
-    <div class="screen">
-      <div class="screen-header">
-        <div class="screen-header-left">
-          <div class="screen-header-button close"></div>
-          <div class="screen-header-button maximize"></div>
-          <div class="screen-header-button minimize"></div>
-        </div>
-        <div class="screen-header-right">
-          <div class="screen-header-ellipsis"></div>
-          <div class="screen-header-ellipsis"></div>
-          <div class="screen-header-ellipsis"></div>
-        </div>
-      </div>
-      <div class="screen-body">
-        <div class="screen-body-item left">
-          <div class="app-title">
-            <span>Консультация</span>
-            <span>Бесплатная консультация, оставьте заявку мы Вам перезвоним.</span>
-          </div>
-          <div class="app-contact">Контакты : +7 928 640 70 00</div>
-        </div>
-        <div class="screen-body-item">
-          {% if isActiv %}
-          <h1>Спасибо, ваша заявка отправлена!</h1>
-          {% else %}
-          <form class="app-form" method="post" action="servicarse">
-            {% csrf_token %}
-            {{ form }}
-            <div class="app-form-group buttons">
-              <button type="submit" class="app-form-button btn ">Заказать звонок</button>
-            </div>
-          </form>
-          {% endif%}
-        </div>
+{% include 'section/formEmail.html' %}
+{% endblock%}
 
-      </div>
-    </div>
-  </div>
-</section>
+{% block script %}
+<script>
+
+</script>
 {% endblock%}

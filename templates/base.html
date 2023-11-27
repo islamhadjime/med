@@ -1,3 +1,4 @@
+{% load blog_tags %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -20,9 +21,8 @@
   </title>
 </head>
 
+
 <body>
-
-
   <header {% if dark %} class="dark--header" {% endif%}>
     <div class="container">
       <div class="header_row">
@@ -48,36 +48,10 @@
               <a href="tel:+1234567890" class="header__social-phone">+7 928 640 70 00</a>
               <div class="header__social-time">ПН- Вс: с 07:00 до 20:00 (МСК)</div>
             </div>
-            <div class="btn header__social-btn" id="clickModal">
+            <div class="header__social-btn" id="clickModal">
               <strong>Свезаться</strong>
             </div>
           </div>
-        </div>
-        <div class="header__row-mobile">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30px" viewBox="0 0 24 24" class="end_clock">
-            <g>
-              <polygon points="20 18 4 18 4 18 20 18 20 18" stroke="#ffffff" stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="2" />
-              <polygon points="20 14 4 14 4 14 20 14 20 14" stroke="#ffffff" stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="2" />
-              <polygon points="20 10 4 10 4 10 20 10 20 10" stroke="#ffffff" stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="2" />
-              <polygon points="20 6 4 6 4 6 20 6 20 6" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round"
-                stroke-width="2" />
-            </g>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="30px" viewBox="0 0 24 24" class="click_look">
-            <g>
-              <polygon fill="#ffffff" points="12.9 18 4.1 18 4.1 18 12.9 18 12.9 18" stroke="#ffffff"
-                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-              <polygon fill="#ffffff" points="20 14 4 14 4 14 20 14 20 14" stroke="#ffffff" stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="2" />
-              <polygon fill="#ffffff" points="12.9 10 4.1 10 4.1 10 12.9 10 12.9 10" stroke="#ffffff" stroke="#000000"
-                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-              <polygon fill="#ffffff" points="20 6 4 6 4 6 20 6 20 6" stroke="#ffffff" stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="2" />
-            </g>
-          </svg>
         </div>
         <div class="theme">
           <input type="checkbox" class="checkbox" id="chk">
@@ -169,9 +143,35 @@
             <div class="ball"></div>
           </label>
         </div>
+        <div class="header__row-mobile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30px" viewBox="0 0 24 24" class="end_clock">
+            <g>
+              <polygon points="20 18 4 18 4 18 20 18 20 18" stroke="#ffffff" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" />
+              <polygon points="20 14 4 14 4 14 20 14 20 14" stroke="#ffffff" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" />
+              <polygon points="20 10 4 10 4 10 20 10 20 10" stroke="#ffffff" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" />
+              <polygon points="20 6 4 6 4 6 20 6 20 6" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" />
+            </g>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30px" viewBox="0 0 24 24" class="click_look">
+            <g>
+              <polygon fill="#ffffff" points="12.9 18 4.1 18 4.1 18 12.9 18 12.9 18" stroke="#ffffff"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+              <polygon fill="#ffffff" points="20 14 4 14 4 14 20 14 20 14" stroke="#ffffff" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" />
+              <polygon fill="#ffffff" points="12.9 10 4.1 10 4.1 10 12.9 10 12.9 10" stroke="#ffffff" stroke="#000000"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+              <polygon fill="#ffffff" points="20 6 4 6 4 6 20 6 20 6" stroke="#ffffff" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" />
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
-    <div class="element"></div>
+
   </header>
   {% block page %}
   <!--  PAGE -->
@@ -184,46 +184,56 @@
   <footer>
     <div class="container">
       <div class="footer__wrappers">
-        <div class="footer__item">
-          <h5 class="footer__item-title">Наши решения</h5>
-          <div class="footer__menus">
-            <a href="#" class="footer__menus-link">
-              МИС для медцентров
-            </a>
+        <div class="footer__top">
+          <div class="footer__top-img">
+            <img src="{% static 'icons/04.png.png' %}" alt="">
+          </div>
+          <div class="footer__top-con">
+            <h3>Свезаться</h3>
+            <p>
+              Вы можите напримую Свезаться с нами WhtasApp >
+            </p>
+          </div>
+          <a href="https://wa.me/79286407000?text=Здравствуйте," class="footer__link-servec">
+            <img src="/static/icons/a.footer__menu-link.png" alt="">
+          </a>
+        </div>
+        <div class="footer__bottom">
+          <div class="footer__about">
+            <h2>PROEGISZ предлагает</h2>
+            <p>
+              Широкий спектр услуг в сфере медицины и деловых услуг для бизнеса, а также системы
+              управления клиникой. Наша компания специализируется на разработке и внедрении инновационных решений,
+              которые помогут оптимизировать работу клиник и повысить качество предоставляемых услуг.
+            </p>
+          </div>
+          <div class="footer__items">
+            <div class="footer__item">
+              <h2>Контакт</h2>
+              <ul class="footer__contact">
+                <li class="footer__likn-item" style="
+                width: 200px">+7 928 640 70 00</li>
+                <li class="footer__likn-item">proegisz@mail.ru</li>
+                <li class="footer__likn-item">ПН- Вс</li>
+              </ul>
+            </div>
+            <div class="footer__item">
+              <h2>Категори</h2>
+              <ul class="footer__tags">
+                <li class="footer__likn-item">Помощь по ЕГИСЗ</li>
+                <li class="footer__likn-item">Разработка сайта</li>
+              </ul>
+            </div>
+            <div class="footer__item">
+              <h2>Страницы</h2>
+              <ul class="footer__lister">
+                <li class="footer__likn-item">Главная старинаца</li>
+                <li class="footer__likn-item">Услуги</li>
+                <li class="footer__likn-item">Контакт</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="footer__item">
-          <h5 class="footer__item-title">Услуги</h5>
-          <div class="footer__menus">
-            <a href="#" class="footer__menus-link">
-              Маркировка лекарств (МДЛП)
-            </a>
-          </div>
-        </div>
-
-        <div class="footer__item">
-          <h5 class="footer__item-title">Контакты</h5>
-          <div class="footer__socials">
-            <a href="#">
-              <img src="./assets/icons/a.footer__menu-link (1).png" alt="">
-            </a>
-            <a href="#">
-              <img src="./assets/icons/a.footer__menu-link (2).png" alt="">
-            </a>
-            <a href="#">
-              <img src="./assets/icons/a.footer__menu-link.png" alt="">
-            </a>
-          </div>
-          <div class="footer__menus">
-            <a href="#" class="footer__menus-link">
-              +7 965 960-99-55
-            </a>
-            <a href="#" class="footer__menus-link">
-              ПН- ПТ: с 07:00 до 20:00 (МСК)
-            </a>
-          </div>
-        </div>
-
       </div>
     </div>
   </footer>
@@ -242,24 +252,51 @@
           </div>
         </div>
         <div class="modal-body">
-          <div>
-            <a href="https://wa.me/79286407000?text=Здравствуйте," class="btn btn-popap">
-              <strong>Так же можите по WhatsApp cвезаться</strong>
-              <img src="{% static '/icons/a.footer__menu-link.png' %}" alt="">
+          <div class="modal-links">
+            <a href="" class="modal-link">
+              <div class="modal-link_img">
+                <img src="{% static 'icons/a.footer__menu-link.png' %}" alt="">
+              </div>
+              <div class="modal-link-text">
+                WhtasApp
+              </div>
+            </a>
+            <a href="" class="modal-link">
+              <div class="modal-link_img">
+                <img src="{% static 'icons/a.footer__menu-link (2).png' %}" alt="">
+              </div>
+              <div class="modal-link-text">
+                Vkontakt
+              </div>
+            </a>
+            <a href="" class="modal-link">
+              <div class="modal-link_img">
+                <img src="{% static 'icons/a.footer__menu-link (1).png' %}" alt="">
+              </div>
+              <div class="modal-link-text">
+                Telegram
+              </div>
             </a>
           </div>
-          <div class="screen-body-item">
-            <form class="app-form" method="post" action="servicarse">
+          <div class="modal-form">
+            <form class="app-form" method="post" action="email">
               {% csrf_token %}
               {{ form }}
               <div class="app-form-group buttons">
                 <button type="submit" class="app-form-button btn ">Заказать звонок</button>
               </div>
-              <p style="margin-top: 10px; font-size: 12px;">
-                Я даю согласие на <a href="{% url 'persion' %}" style="color: #e85cff; margin-left: 5px;">обработку
-                  персональных данных</a>
-              </p>
             </form>
+            <div style="
+              margin: 20px;
+              font-size: 14px;
+              display: flex;
+              align-items: center;
+              border-top: 1px solid;">
+              Я даю согласие на
+              <a href="/persion" style="color: #e85cff; margin-left: 5px;">обработку
+                персональных данных
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -268,8 +305,7 @@
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-  <script src="{% static '/js/anime.js' %}"></script>
+  <script src="{% static '/js/index.js' %}"></script>
 
   {% block script %}
 
